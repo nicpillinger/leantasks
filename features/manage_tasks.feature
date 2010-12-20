@@ -3,12 +3,28 @@ Feature: Manage tasks
   As a busy person
   I need to be able to manage a list of current tasks
   
-  Sceanrio: List tasks
+  Sceanrio: First visit to tasks page
     Given I am on the tasks page
     And the following tasks:
       |name|description|complexity|
     Then I should see "new task"
     
+  Sceanrio: Visit to tasks page with tasks already entered
+    Given I am on the tasks page
+    And the following tasks:
+      |name|description|complexity|
+      |name 1|description 1|1|
+      |name 2|description 2|2|
+      |name 3|description 3|3|
+      |name 4|description 4|4|      
+    Then I should see the following tasks:
+      |Name|Description|Complexity|
+      |name 1|description 1|1|
+      |name 2|description 2|2|
+      |name 3|description 3|3|
+      |name 4|description 4|4|
+    And I should see "new task"
+
   Scenario: Register new task
     Given I am on the new task page
     When I fill in "Name" with "name 1"
