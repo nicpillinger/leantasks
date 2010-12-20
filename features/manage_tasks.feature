@@ -3,13 +3,13 @@ Feature: Manage tasks
   As a busy person
   I need to be able to manage a list of current tasks
   
-  Sceanrio: First visit to tasks page
+  Sceanrio: Tasklist first visit
     Given I am on the tasks page
     And the following tasks:
       |name|description|complexity|
     Then I should see "new task"
     
-  Sceanrio: Visit to tasks page with tasks already entered
+  Sceanrio: Tasklist with tasks already entered
     Given I am on the tasks page
     And the following tasks:
       |name|description|complexity|
@@ -35,17 +35,27 @@ Feature: Manage tasks
     And I should see "description 1"
     And I should see "1"
   
-  @no-js-emulation
-  Scenario: Delete task
-    Given the following tasks:
+  Scenario: Tasks which are not at the top of the list can be promoted
+    Given I am on the tasks page    
+    And the following tasks:
       |name|description|complexity|
       |name 1|description 1|1|
       |name 2|description 2|2|
       |name 3|description 3|3|
-      |name 4|description 4|4|
-    When I delete the 3rd task
-    Then I should see the following tasks:
-      |Name|Description|Complexity|
+    Then I should see "promote name 2"
+    And I should see "promote name 3"
+
+  Scenario: Clicking promote on a task which is not at the top of the list it should be promoted to the top
+    Given I am on the tasks page    
+    And the following tasks:
+      |name|description|complexity|
       |name 1|description 1|1|
       |name 2|description 2|2|
-      |name 4|description 4|4|
+      |name 3|description 3|3|
+    And I press "promote name 2"
+    Then I should see the following tasks:
+      |Name|Description|Complexity|
+      |name 3|description 3|3|
+      |name 1|description 1|1|
+      |name 2|description 2|2|
+
