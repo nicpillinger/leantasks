@@ -7,13 +7,13 @@
           %li= msg
 
   .field
-    = f.label :name
+    = f.label :add_to_top_of_list, "add task to the top of this list?"
+    = f.check_box :add_to_top_of_list
+  .field
+    = f.label :name, "task name"
     = f.text_field :name
   .field
-    = f.label :description
-    = f.text_field :description
-  .field
-    = f.label :complexity
+    = f.label :complexity, "complexity"
     = f.text_field :complexity
   .actions
-    = f.submit 'Save'
+    = f.submit 'add task to list'

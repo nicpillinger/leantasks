@@ -36,11 +36,19 @@ class TasksController < ApplicationController
   # POST /tasks.xml
   def create
     @task_list = TaskList.find(params[:task_list_id])
-    @task = @task_list.tasks.build(params[:task])
-
+    @task = Task.new(params[:task])    
+    add_to_top = params[:task][:add_to_top_of_list] == "1" ? true : false
+    
     respond_to do |format|
-      if @task.save
-        format.html { redirect_to(@task_list, :notice => 'Task was successfully created.') }
+      if @task_list.tasks << @task
+        if add_to_top
+          @task.move_to_top
+        else
+          @task.move_to_bottom
+        end
+        @task_list.reload
+        
+        format.html { redirect_to(@task_list, :notice => "task successfully added to the #{add_to_top ? 'top' : 'bottom'} of the list") }
         format.xml  { render :xml => @task, :status => :created, :location => @task }
       else
         format.html { render :action => "new" }

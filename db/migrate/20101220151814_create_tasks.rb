@@ -2,7 +2,6 @@ class CreateTasks < ActiveRecord::Migration
   def self.up
     create_table :tasks do |t|
       t.string :name
-      t.string :description
       t.integer :complexity
       t.integer :position
       t.integer :task_list_id

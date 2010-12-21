@@ -11,9 +11,14 @@ module NavigationHelpers
     when /the home\s?page/
       '/'
     when /the new task page/
-      new_task_path
+      new_task_list_task_path
 
+    when /the new task_list page/
+      new_task_list_path
 
+    when /^the task list page for task_list with id (.*)$/i
+      task_list_path($1)
+      
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
