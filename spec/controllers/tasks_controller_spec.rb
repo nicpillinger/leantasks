@@ -9,10 +9,9 @@ describe TasksController do
   end
 
   describe "GET index" do
-    it "assigns all tasks as @tasks" do
-      Task.stub(:all) { [mock_task] }
-      get :index
-      assigns(:tasks).should eq([mock_task])
+    it "should redirect to task_list/:task_list_id" do
+      get :index, :task_list_id => 1      
+      response.should redirect_to(task_list_path(1))
     end
   end
 
