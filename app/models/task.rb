@@ -8,16 +8,5 @@ class Task < ActiveRecord::Base
   validates_presence_of :name, :message => 'is required'
   validates_presence_of :complexity, :message => 'is required'    
 
-  after_create :insert_in_correct_position
-    
-  private
-  
-  def insert_in_correct_position
-    if @add_to_top_of_list 
-      move_to_top 
-    else 
-      move_to_bottom
-    end
-  end
 
 end

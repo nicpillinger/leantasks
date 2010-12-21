@@ -3,13 +3,7 @@ require 'spec_helper'
 describe Task, "a new task object" do
   
   before (:each) do
-    @task = Fabricate.build(:task)
-  end
-
-  context "unsaved task" do
-    it "by default should be added to the bottom of tasklist" do
-      @task.add_to_top_of_list.should be_false
-    end    
+    @task = Task.new
   end
 
   context "with no name" do
