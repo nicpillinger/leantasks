@@ -1,0 +1,21 @@
+%h1 my task lists
+
+%table
+  %tr
+    %th Name
+    %th Task Count
+    %th
+    %th
+    %th
+
+  - @task_lists.each do |task_list|
+    %tr
+      %td= task_list.name
+      %td= task_list.tasks.count
+      %td= link_to 'Show tasks', task_list_tasks_path(task_list)
+      %td= link_to 'Rename list', edit_task_list_path(task_list)
+      %td= link_to 'Destroy list', task_list, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'Create new task list', new_task_list_path

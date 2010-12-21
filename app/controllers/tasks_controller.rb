@@ -2,11 +2,11 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.xml
   def index
-    @tasks = Task.all
+    @task_list = TaskList.find(params[:task_list_id])
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @tasks }
+      format.xml  { render :xml => @task_list }
     end
   end
 
