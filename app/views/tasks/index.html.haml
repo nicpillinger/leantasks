@@ -1,23 +1,12 @@
-%h1 Listing tasks
+%h1 #{h @task_list.name}
 
 %table
-  %tr
-    %th Name
-    %th Description
-    %th Complexity
-    %th
-    %th
-    %th
-
   - @task_list.tasks.each do |task|
     %tr
       %td= task.name
-      %td= task.description
       %td= task.complexity
-      %td= link_to 'Show', task_list_task_path(@task_list, task)
-      %td= link_to 'Edit', edit_task_list_task_path(@task_list, task)
-      %td= link_to 'Destroy', task_list_task_path(@task_list, task), :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'details', task_list_task_path(@task_list, task)      
 
 %br
 
-= link_to 'Add new task', new_task_list_task_path(@task_list)
+= link_to 'Add a new task', new_task_list_task_path(@task_list)

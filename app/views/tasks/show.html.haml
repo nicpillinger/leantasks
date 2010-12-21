@@ -10,6 +10,5 @@
   %b Complexity:
   = @task.complexity
 
-= link_to 'Edit', edit_task_path(@task)
-\|
-= link_to 'Back', tasks_path
+= link_to 'edit', edit_task_list_task_path(@task.task_list, @task)
+= link_to 'delete', task_list_task_path(@task.task_list, @task), :confirm => 'Are you sure?', :method => :delete

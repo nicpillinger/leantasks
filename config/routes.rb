@@ -1,6 +1,12 @@
 Leantasks::Application.routes.draw do
   resources :task_lists do
-    resources :tasks
+    resources :tasks do
+      member do
+        post 'promote'
+        post 'demote'
+        post 'mark_complete'
+      end
+    end
   end
 
   # The priority is based upon order of creation:

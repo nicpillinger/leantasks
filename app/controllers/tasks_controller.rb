@@ -2,12 +2,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.xml
   def index
-    @task_list = TaskList.find(params[:task_list_id])
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @task_list }
-    end
+    redirect_to(task_list_url(params[:task_list_id]))
   end
 
   # GET /tasks/1
@@ -24,7 +19,7 @@ class TasksController < ApplicationController
   # GET /tasks/new
   # GET /tasks/new.xml
   def new
-    @task = Task.new
+    @task = Task.new(:task_list => TaskList.find(params[:task_list_id]))
 
     respond_to do |format|
       format.html # new.html.erb
@@ -76,7 +71,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to(tasks_url) }
+      format.html { redirect_to(task_list_url(params[:task_list_id])) }
       format.xml  { head :ok }
     end
   end
