@@ -1,20 +1,23 @@
 class Task < ActiveRecord::Base
-  attr_accessor :add_to_top_of_list
-  has_one :next_task, :class_name => "Task"
+  attr_accessor :add_to_top_of_list 
   
-  after_create :update_list_pointers
+  belongs_to :task_list
+  acts_as_list :scope => :task_list
   
+  validates_presence_of :task_list, :message => 'is required'  
   validates_presence_of :name, :message => 'is required'
   validates_presence_of :complexity, :message => 'is required'    
-  
+
+  after_create :insert_in_correct_position
+    
   private
   
-    def update_list_pointers
-      if @add_to_top_of_list
-        self.next_task = Task.first
-      else
-        tail = Task.last
-        tail.next_task = self
-      end
+  def insert_in_correct_position
+    if @add_to_top_of_list 
+      move_to_top 
+    else 
+      move_to_bottom
     end
+  end
+
 end

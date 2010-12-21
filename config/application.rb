@@ -11,6 +11,7 @@ module Leantasks
   
     config.generators do |g|
       g.test_framework :rspec, :fixture => true, :views => false
+      g.fixture_replacement :fabrication, :dir => "spec/fabricators"
       g.integration_tool :rspec
     end
 

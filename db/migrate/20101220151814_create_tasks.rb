@@ -4,7 +4,9 @@ class CreateTasks < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.integer :complexity
-
+      t.integer :position
+      t.integer :task_list_id
+      
       t.timestamps
     end
   end
