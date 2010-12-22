@@ -37,10 +37,10 @@ class TasksController < ApplicationController
   def create
     @task_list = TaskList.find(params[:task_list_id])
     @task = Task.new(params[:task])    
-    add_to_top = params[:task][:add_to_top_of_list] == "1" ? true : false
     
     respond_to do |format|
-      if @task_list.tasks << @task
+      if @task.is_valid && @task_list.tasks << @task    
+        add_to_top = params[:task][:add_to_top_of_list] == "1" ? true : false
         if add_to_top
           @task.move_to_top
         else
@@ -64,7 +64,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to(@task, :notice => 'Task was successfully updated.') }
+        format.html { redirect_to(task_list_path(params[:task_list_id]), :notice => 'Task was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
