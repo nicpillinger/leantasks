@@ -17,4 +17,5 @@ group :development, :test do
   gem "rspec-rails", ">= 2.2.1"
   gem "spork", ">= 0.8.4"
   gem 'fabrication'
+  gem "webrat", ">= 0.7.2.beta.1"
 end

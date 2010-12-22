@@ -2,14 +2,15 @@ require 'spec_helper'
 
 describe "tasks/show.html.haml" do
   before(:each) do
-    @task = assign(:task, Fabricate(:task))
+    @task_list = Fabricate.build(:task_list)
+    @task = assign(:task, @task_list.tasks[0])
   end
 
   it "renders attributes in <p>" do
     render
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/Name/)
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/1/)
+
+    rendered.should contain(@task.name.to_s)
+    rendered.should contain(@task.complexity.to_s)    
+    rendered.should have_selector("a", :href => task_list_task_path(@task_list, @task))    
   end
 end

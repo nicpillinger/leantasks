@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "task_lists/new.html.haml" do
   before(:each) do
-    assign(:task_list, Fabricate(:task_list).as_new_record)
+    assign(:task_list, Fabricate(:task_list))
   end
 
   it "renders new task_list form" do
