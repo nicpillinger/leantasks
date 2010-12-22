@@ -36,10 +36,10 @@ class TasksController < ApplicationController
   # POST /tasks.xml
   def create
     @task_list = TaskList.find(params[:task_list_id])
-    @task = Task.new(params[:task])    
+    @task = Task.new({ :attributes => params[:task], :task_list => @task_list })    
     
     respond_to do |format|
-      if @task.is_valid && @task_list.tasks << @task    
+      if @task.valid? && @task_list.tasks << @task    
         add_to_top = params[:task][:add_to_top_of_list] == "1" ? true : false
         if add_to_top
           @task.move_to_top

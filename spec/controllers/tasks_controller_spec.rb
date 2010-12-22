@@ -59,7 +59,7 @@ describe TasksController do
     describe "with valid params for adding to end of list" do
       it "adds to tasklist and moves to bottom, redirects to tasklist" do
 
-        mock_t = mock_task(:is_valid => true)
+        mock_t = mock_task(:valid? => true)
         mock_t.should_receive(:move_to_bottom)        
         
         TaskList.stub(:find).and_return(mock_tasklist({:tasks => [], :reload => true}))
@@ -75,7 +75,7 @@ describe TasksController do
     describe "with valid params for adding to top of list" do
       it "adds to tasklist and moves to top, redirects to tasklist" do
         
-        mock_t = mock_task(:is_valid => true)
+        mock_t = mock_task(:valid? => true)
         mock_t.should_receive(:move_to_top)        
         
         TaskList.stub(:find).and_return(mock_tasklist)
@@ -91,7 +91,7 @@ describe TasksController do
     describe "with invalid params" do
       it "assigns a newly created but unsaved task as @task, renders new view" do
         TaskList.stub(:find).and_return(mock_tasklist(:tasks => []))
-        Task.stub(:new).with({'these' => 'params'}) { mock_task(:is_valid => false) }
+        Task.stub(:new).with({'these' => 'params'}) { mock_task(:valid? => false) }
         post :create, :task_list_id => "1", :task => {'these' => 'params'}
         assigns(:task).should be(mock_task)
         response.should render_template("new")
