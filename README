@@ -1,3 +1,17 @@
 == Welcome to leantasks
 
-Demo app for me to try out rails 3 goodies. This app will be deployed in the cloud to heroku and is fully BDD'd using Cucumber, Capybara, Rspec and all that jazz.
+Lean task management example app.
+
+Built with:
+
+  Rails 3
+  Jquery
+  Haml
+  Sqlite
+  
+developed using:
+  
+  Cucumber
+  RSpec
+  Fabrication
+  Capybara/Webrat
