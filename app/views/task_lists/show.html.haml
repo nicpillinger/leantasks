@@ -5,11 +5,16 @@
 %table
   - @task_list.tasks.each do |task|
     %tr
-      %td= link_to '^', promote_task_list_task_path(@task_list, task)      
+      %td 
+        - if task.position != 1
+          = form_for [@task_list, task], :url => promote_task_list_task_path(@task_list, task), :html => { :method => :post } do |f|
+            = f.submit '^'
+        - else
+          = form_for [@task_list, task], :url => mark_complete_task_list_task_path(@task_list, task) do |f|
+            = f.submit 'done!'
       %td= task.name
       %td= task.complexity
-      %td= link_to 'mark as complete', mark_complete_task_list_task_path(@task_list, task)      
-      %td= link_to 'edit task details', task_list_task_path(@task_list, task)      
+      %td= link_to 'edit', task_list_task_path(@task_list, task)      
 
 %br
 

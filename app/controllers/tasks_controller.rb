@@ -64,12 +64,23 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to(task_list_path(params[:task_list_id]), :notice => 'Task was successfully updated.') }
+        format.html { redirect_to(task_list_path(params[:task_list_id]), :notice => 'task was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+
+  # POST
+  def promote
+    @task = Task.find(params[:id])
+  
+    respond_to do |format|
+      @task.move_higher
+      format.html { redirect_to(task_list_path(params[:task_list_id]), :notice => 'task was promoted.') }
+      format.xml  { head :ok }
     end
   end
 

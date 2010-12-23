@@ -14,12 +14,18 @@ describe TasksController do
     end
   end
 
+  def task_params
+    {'name' => 't1', 'complexity' => '1'}
+  end
+  
   def add_to_top_params
-    {'name' => 't1', 'complexity' => '1', 'add_to_top_of_list' => '1'}
+    task_params[:add_to_top_of_list] = '1'
+    task_params
   end
   
   def add_to_bottom_params
-    {'name' => 't1', 'complexity' => '1', 'add_to_top_of_list' => '0'}
+    task_params[:add_to_top_of_list] = '0'
+    task_params
   end
 
   describe "GET index" do
@@ -57,41 +63,41 @@ describe TasksController do
   describe "POST create" do
 
     describe "with valid params for adding to end of list" do
-      it "adds to tasklist and moves to bottom, redirects to tasklist" do
-
-        mock_t = mock_task(:valid? => true)
-        mock_t.should_receive(:move_to_bottom)        
-        
-        TaskList.stub(:find).and_return(mock_tasklist({:tasks => [], :reload => true}))
-        Task.stub(:new).with(add_to_bottom_params).and_return(mock_t)
-
-        post :create, :task_list_id => "1", :task => add_to_bottom_params
-        
-        mock_tasklist.tasks.should include(mock_t)
-        response.should redirect_to(task_list_url(mock_tasklist))
-      end
+      it "adds to tasklist and moves to bottom, redirects to tasklist" do        
+          verify_add_to_list_gives(add_to_bottom_params)
+        end
     end
       
     describe "with valid params for adding to top of list" do
       it "adds to tasklist and moves to top, redirects to tasklist" do
+          verify_add_to_list_gives(add_to_top_params)  
+        end
+    end
+  
+    def verify_add_to_list_gives(task_params)
+      
+      move_call = task_params[:add_to_top_of_list] == "1" ? :move_to_top : :move_to_bottom
+      mock_t = mock_task(:valid? => true)     
+      mock_t.should_receive(move_call)        
         
-        mock_t = mock_task(:valid? => true)
-        mock_t.should_receive(:move_to_top)        
-        
-        TaskList.stub(:find).and_return(mock_tasklist)
-        Task.stub(:new).with(add_to_top_params).and_return(mock_t)
+      TaskList.stub(:find).and_return(mock_tasklist({
+        :tasks => [], :reload => true}))
+      Task.stub(:new).with({:attributes =>  add_to_bottom_params, 
+        :task_list => mock_tasklist}).and_return(mock_t)
 
-        post :create, :task_list_id => "1", :task => add_to_top_params
+      post :create, :task_list_id => "1", :task => add_to_bottom_params
         
-        mock_tasklist.tasks.should include(mock_t)
-        response.should redirect_to(task_list_url(mock_tasklist))
-      end
+      mock_tasklist.tasks.should include(mock_t)
+      response.should redirect_to(task_list_url(mock_tasklist))
+      
     end
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved task as @task, renders new view" do
         TaskList.stub(:find).and_return(mock_tasklist(:tasks => []))
-        Task.stub(:new).with({'these' => 'params'}) { mock_task(:valid? => false) }
+        Task.stub(:new).with({
+          :attributes => {'these' => 'params'}, 
+          :task_list => mock_tasklist}) { mock_task(:valid? => false) }
         post :create, :task_list_id => "1", :task => {'these' => 'params'}
         assigns(:task).should be(mock_task)
         response.should render_template("new")
@@ -135,6 +141,15 @@ describe TasksController do
       end
     end
 
+  end
+
+  describe "POST promote" do
+    it "promotes the requested task" do
+      Task.should_receive(:find).with("37") { mock_task }
+      mock_task.should_receive(:move_higher)
+    
+      post :promote, :id => "37", :task_list_id => "1"
+    end
   end
 
   describe "DELETE destroy" do
