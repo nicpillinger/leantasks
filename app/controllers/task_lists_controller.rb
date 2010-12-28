@@ -69,6 +69,18 @@ class TaskListsController < ApplicationController
     end
   end
 
+  # POST
+  def update_task_positions
+    @task_list = TaskList.find(params[:id])
+    @task_list.tasks.each do |task|
+      task.position = params[:task].index(task.id.to_s) + 1
+      task.save
+    end
+    respond_to do |format|
+      format.js { render :nothing => true }
+    end  
+  end
+
   # DELETE /task_lists/1
   # DELETE /task_lists/1.xml
   def destroy

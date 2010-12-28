@@ -1,10 +1,12 @@
 Leantasks::Application.routes.draw do
   resources :task_lists do
+    member do
+      post 'update_task_positions'
+    end
     resources :tasks do
       member do
         post 'promote'
         post 'demote'
-        post 'mark_complete'
       end
     end
   end

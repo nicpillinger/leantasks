@@ -18,4 +18,5 @@ group :development, :test do
   gem "spork", ">= 0.8.4"
   gem 'fabrication'
   gem "webrat", ">= 0.7.2.beta.1"
+  gem "ruby-debug19"
 end

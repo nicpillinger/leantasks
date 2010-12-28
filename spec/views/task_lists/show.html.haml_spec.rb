@@ -6,26 +6,19 @@ describe "task_lists/show.html.haml" do
   end
 
   it "renders attributes in <p>" do
-    render
-    
-    rendered.should have_selector("h1", :content => @task_list.name)
-    rendered.should have_selector(:table) do |table|
-      @task_list.tasks.each do |task|
-        table.should have_selector(:tr) do |row|
-          row.should have_selector(:td) do |promote_col|
-            if task.position == 1
-              promote_col.should have_selector(:form, :url => mark_complete_task_list_task_path(@task_list, task)) do |f|
-                f.should have_selector(:div)
-                f.should have_selector(:input, {:id => "task_submit", :name => "commit", :type => "submit", :value => "done!"}) 
-              end
-            else
-              promote_col.should have_selector(:form, :url => promote_task_list_task_path(@task_list, task)) do |f|
-                f.should have_selector(:input, :value => "^") 
-              end
-            end
-          end          
+    render    
+    rendered.should have_selector(:h1, :content => @task_list.name)
+    rendered.should have_selector(:div) do |listdiv|
+      rendered.should have_selector(:ul, :class => "sortable") do |list|
+        @task_list.tasks.each do |task|
+          list.should have_selector(:li) do |listitem|
+            listitem.should have_selector(:a, :href => task_list_task_path(@task_list, task))
+            listitem.should have_selector(:button, :id => "promote_task_#{task.id}")
+            listitem.should have_selector(:button, :id => "demote_task_#{task.id}")
+          end
         end
       end
     end
+    rendered.should have_selector(:a, :href => new_task_list_task_path(@task_list))
   end
 end

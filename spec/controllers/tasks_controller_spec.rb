@@ -143,15 +143,6 @@ describe TasksController do
 
   end
 
-  describe "POST promote" do
-    it "promotes the requested task" do
-      Task.should_receive(:find).with("37") { mock_task }
-      mock_task.should_receive(:move_higher)
-    
-      post :promote, :id => "37", :task_list_id => "1"
-    end
-  end
-
   describe "DELETE destroy" do
     it "destroys the requested task" do
       Task.should_receive(:find).with("37") { mock_task }

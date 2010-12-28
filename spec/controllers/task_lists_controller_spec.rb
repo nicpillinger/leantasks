@@ -110,6 +110,19 @@ describe TaskListsController do
 
   end
 
+  describe "POST Update task list positions" do
+    it "updates the order of the tasks in the list" do
+      mock_tl = Fabricate.build(:task_list, :tasks => [Fabricate.build(:task, :id => 1, :position => 1), Fabricate.build(:task, :id => 2, :position => 2), Fabricate.build(:task, :id => 3, :position => 3)])
+      TaskList.should_receive(:find).with("37").and_return(mock_tl)
+      
+      post :update_task_positions, :id => "37", :task => ["2", "1", "3"]
+      
+      mock_tl.tasks[0].position.should be(2)
+      mock_tl.tasks[1].position.should be(1)
+      mock_tl.tasks[2].position.should be(3)
+    end
+  end
+  
   describe "DELETE destroy" do
     it "destroys the requested task_list" do
       TaskList.should_receive(:find).with("37") { mock_task_list }

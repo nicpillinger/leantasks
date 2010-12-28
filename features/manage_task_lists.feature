@@ -41,18 +41,18 @@ Feature: Create lists of tasks
     And I press "add task to list"
     Then I should see "task successfully added to the bottom of the list"
     And I should be on the task list page for task_list with id 1
-    And I should see the following tasks:
-      |task 1|91|
-      |task 2|92|
-      |test task name|5|
+    And I should see the following task list:
+      |task 1|
+      |task 2|
+      |test task name|
 
   Scenario: Add an important task to the top of a task list
     Given the following task_list:
       |name|name 1|
     And that task_list has the following tasks:
       |name|complexity|
-      |task 1|91|
-      |task 2|92|
+      |task 1|1|
+      |task 2|2|
     And I am on the task list page for task_list with id 1    
     When I follow "add a new task"
     Then I should see "task name"
@@ -64,7 +64,7 @@ Feature: Create lists of tasks
     And I press "add task to list"
     Then I should see "task successfully added to the top of the list"
     And I should be on the task list page for task_list with id 1
-    And I should see the following tasks:
-      |test task name|5|
-      |task 1|91|
-      |task 2|92|    
+    And I should see the following task list:
+      |test task name|
+      |task 1|
+      |task 2|

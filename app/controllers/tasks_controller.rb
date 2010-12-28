@@ -76,11 +76,14 @@ class TasksController < ApplicationController
   # POST
   def promote
     @task = Task.find(params[:id])
-  
+    @task_list = TaskList.find(params[:task_list_id])  
+    
     respond_to do |format|
       @task.move_higher
-      format.html { redirect_to(task_list_path(params[:task_list_id]), :notice => 'task was promoted.') }
-      format.xml  { head :ok }
+      @task_list.save
+      @task_list.reload
+      @notice = "task promoted!"
+      format.js
     end
   end
 
