@@ -13,8 +13,8 @@ describe "task_lists/show.html.haml" do
         @task_list.tasks.each do |task|
           list.should have_selector(:li) do |listitem|
             listitem.should have_selector(:a, :href => task_list_task_path(@task_list, task))
-            listitem.should have_selector(:button, :id => "promote_task_#{task.id}")
-            listitem.should have_selector(:button, :id => "demote_task_#{task.id}")
+            listitem.should have_selector(:a, :id => "promote_task_#{task.id}", :href => promote_task_list_task_path(@task_list, task))
+            listitem.should have_selector(:a, :id => "demote_task_#{task.id}", :href => demote_task_list_task_path(@task_list, task))
           end
         end
       end

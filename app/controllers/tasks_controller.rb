@@ -83,7 +83,21 @@ class TasksController < ApplicationController
       @task_list.save
       @task_list.reload
       @notice = "task promoted!"
-      format.js
+      format.js { render "promote_demote" }
+    end
+  end
+
+  # POST
+  def demote
+    @task = Task.find(params[:id])
+    @task_list = TaskList.find(params[:task_list_id])  
+    
+    respond_to do |format|
+      @task.move_lower
+      @task_list.save
+      @task_list.reload
+      @notice = "task demoted!"
+      format.js { render "promote_demote" }
     end
   end
 
