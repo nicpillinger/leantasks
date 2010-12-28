@@ -1,8 +1,19 @@
 module TaskListsHelper
   def prioritisation_links(task)
-    promote_link = build_prioritisation_link("up", promote_task_list_task_path(task.task_list, task), "promote_task_#{task.id}")
-    demote_link = build_prioritisation_link("down", demote_task_list_task_path(task.task_list, task), "demote_task_#{task.id}")
-    promote_link + " " +  demote_link
+    if (!task.first?)
+      promote_link = build_prioritisation_link("up", 
+        promote_task_list_task_path(task.task_list, task), 
+        "promote_task_#{task.id}")
+    end
+    if (!task.last?)
+      demote_link = build_prioritisation_link("down", 
+        demote_task_list_task_path(task.task_list, task), 
+        "demote_task_#{task.id}")
+    end
+    
+    content_tag(:span) do 
+      task.first? ? demote_link : task.last? ? promote_link : promote_link + demote_link
+    end
   end
   
   private
