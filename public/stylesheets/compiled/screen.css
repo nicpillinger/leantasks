@@ -541,15 +541,21 @@ form.bp textarea {
   height: 250px;
 }
 
-/* line 25, ../../../app/stylesheets/partials/_two_col.scss */
+/* line 24, ../../../app/stylesheets/partials/_two_col.scss */
+body.two-col {
+  background-color: #263236;
+}
+/* line 26, ../../../app/stylesheets/partials/_two_col.scss */
 body.two-col #container {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 27, ../../../app/stylesheets/partials/_two_col.scss */
+/* line 28, ../../../app/stylesheets/partials/_two_col.scss */
 body.two-col #header, body.two-col #footer {
+  text-align: center;
+  color: #ff6c1d;
   display: inline;
   float: left;
   margin-right: 10px;
@@ -559,23 +565,29 @@ body.two-col #header, body.two-col #footer {
 * html body.two-col #header, * html body.two-col #footer {
   overflow-x: hidden;
 }
-/* line 29, ../../../app/stylesheets/partials/_two_col.scss */
+/* line 32, ../../../app/stylesheets/partials/_two_col.scss */
 body.two-col #sidebar {
+  color: #f09d68;
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 310px;
+  width: 150px;
 }
 /* line 138, ../../../../../.rvm/gems/ruby-1.9.2-p0@leantasks/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body.two-col #sidebar {
   overflow-x: hidden;
 }
-/* line 33, ../../../app/stylesheets/partials/_two_col.scss */
+/* line 35, ../../../app/stylesheets/partials/_two_col.scss */
 body.two-col #content {
+  color: #c4a79e;
   display: inline;
   float: left;
   margin-right: 0;
-  width: 630px;
+  width: 790px;
+}
+/* line 37, ../../../app/stylesheets/partials/_two_col.scss */
+body.two-col #content a {
+  color: #84868b;
 }
 /* line 138, ../../../../../.rvm/gems/ruby-1.9.2-p0@leantasks/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html body.two-col #content {

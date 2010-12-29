@@ -10,8 +10,14 @@ function bindSortableItems(updateTaskPositionsUrl){
         data: $("#task_list").sortable("serialize"),
         type: "post",
         dataType: "script",
+        beforeSend: function(){
+          toggleSpinner();
+        },
+        complete: function(){
+          toggleSpinner();
+        },
         success: function(){
-          $("#task_list").effect('highlight');
+          $("#notice").html("reprioritised!");
         }
       });
     }
