@@ -44,16 +44,20 @@ body.two-col {
       li {
         @include border-radius(4px, 4px);
         list-style-type: none;
-        background-color: $dark;
+        background-color: $task-color;
         margin: 0.2em;
-        padding: 0.2em;
+        padding: 0.5em;
         border: {
           style: solid;
-          width: 0.3em;
+          width: 0.2em;
+          color: $task-border-color;
+        }
+        a.task_link {
           color: $mid;
         }
-        a {
-          color: $mid;
+        a.prioritisation_link {
+          float: right;
+          padding: 0.1em;
         }
       }
     }

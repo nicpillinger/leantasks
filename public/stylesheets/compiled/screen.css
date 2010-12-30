@@ -618,18 +618,23 @@ body.two-col #content #task_list_container li {
   -khtml-border-radius: 4px / 4px;
   border-radius: 4px / 4px;
   list-style-type: none;
-  background-color: #263236;
+  background-color: #cccccc;
   margin: 0.2em;
-  padding: 0.2em;
+  padding: 0.5em;
   border-style: solid;
-  border-width: 0.3em;
-  border-color: #84868b;
+  border-width: 0.2em;
+  border-color: #333333;
 }
 /* line 55, ../../../app/stylesheets/partials/_two_col.scss */
-body.two-col #content #task_list_container li a {
+body.two-col #content #task_list_container li a.task_link {
   color: #84868b;
 }
-/* line 60, ../../../app/stylesheets/partials/_two_col.scss */
+/* line 58, ../../../app/stylesheets/partials/_two_col.scss */
+body.two-col #content #task_list_container li a.prioritisation_link {
+  float: right;
+  padding: 0.1em;
+}
+/* line 64, ../../../app/stylesheets/partials/_two_col.scss */
 body.two-col #content #task_list_actions {
   display: inline;
   float: left;

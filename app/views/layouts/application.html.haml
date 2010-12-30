@@ -10,8 +10,8 @@
     = csrf_meta_tag
     = yield :head
   %body{:class => "two-col bp"}
+    =render :partial => "application/header"
     %div#container
-      =render :partial => "application/header"
       =render :partial => "application/sidebar"
       %div#content
         = yield
