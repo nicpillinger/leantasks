@@ -76,8 +76,10 @@ class TaskListsController < ApplicationController
       task.position = params[:task].index(task.id.to_s) + 1
       task.save
     end
+    @task_list.reload
+    @notice = "reprioritised!"
     respond_to do |format|
-      format.js { render :nothing => true }
+      format.js { render }
     end  
   end
 

@@ -83,7 +83,7 @@ class TasksController < ApplicationController
       @task_list.save
       @task_list.reload
       @notice = "task promoted!"
-      format.js { render "promote_demote" }
+      format.js { render "task_lists/update_task_positions" }
     end
   end
 
@@ -97,7 +97,7 @@ class TasksController < ApplicationController
       @task_list.save
       @task_list.reload
       @notice = "task demoted!"
-      format.js { render "promote_demote" }
+      format.js { render "task_lists/update_task_positions" }
     end
   end
 

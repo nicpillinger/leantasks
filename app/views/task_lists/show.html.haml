@@ -1,10 +1,12 @@
 - content_for :head do
   %title lean task list
   =javascript_include_tag 'task_list/task_list.js'
+- content_for :javascript do
   :javascript
     $(document).ready(function() {
-      bindSortableItems("#{update_task_positions_task_list_path(@task_list)}");
-    });   
+      bindSortableItems("#{update_task_positions_task_list_path(@task_list)}");      
+      bindAjaxEventsFor(".prioritisation_link");
+    });
     
 %h1 #{h @task_list.name}
 

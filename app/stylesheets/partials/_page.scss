@@ -1,5 +1,4 @@
 @import "blueprint/scaffolding";
-@import "compass/layout/sticky-footer";
 
 body {
   @include fancy-type;
@@ -9,5 +8,3 @@ body {
   @include blueprint-interaction; 
   @include blueprint-scaffolding;
 }
-
-@include sticky-footer(20px, "#root", "#root-footer", "#footer");

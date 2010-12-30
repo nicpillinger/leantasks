@@ -1,9 +1,19 @@
-function toggleSpinner(){
-  $("#spinner").toggle();
+function bindAjaxEventsFor(jqueryIdentifier){
+  $(jqueryIdentifier).bind("ajax:beforeSend", function() {
+    displayUpdatingMsg();
+  });
+}
+
+function displayUpdatingMsg(){
+  $("#notice").html("updating...").show();
 }
 
 function displayNotice(noticeMsg){
   $("#notice").html(noticeMsg).fadeIn('slow').delay(2000).fadeOut('slow');
+}
+
+function hideNotice(){
+  $("#notice").hide();
 }
 
 function bindSortableItems(updateTaskPositionsUrl){
@@ -15,13 +25,7 @@ function bindSortableItems(updateTaskPositionsUrl){
         type: "post",
         dataType: "script",
         beforeSend: function(){
-          toggleSpinner();
-        },
-        complete: function(){
-          toggleSpinner();
-        },
-        success: function(){
-          displayNotice("reprioritised!");
+          displayUpdatingMsg();
         }
       });
     }
