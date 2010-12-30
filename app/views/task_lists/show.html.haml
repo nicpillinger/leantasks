@@ -10,5 +10,5 @@
 
 =render :partial => 'task_list', :locals => { :task_list => @task_list }
 
-%br
-= link_to 'add a new task', new_task_list_task_path(@task_list)
+%div#task_list_actions
+  = link_to 'add a new task', new_task_list_task_path(@task_list)

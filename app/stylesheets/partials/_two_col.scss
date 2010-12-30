@@ -20,23 +20,47 @@
 //    +------------------------+
 //    |        #footer         |
 //    +--------+---------------+
+@import "compass/css3/border-radius";
 
 body.two-col {
   background-color: white; 
   #container {
     @include container; }
-  #header, #footer {
-    height: 3em;
+  #header {
+    height: 1.5em;
     text-align: center;
     color: $bold;
+    @include column($blueprint-grid-columns); }    
+  #footer {
+    color: $muted;
     @include column($blueprint-grid-columns); }    
   #sidebar {
     color: $muted;
     @include column(4); }
   #content {
     color: $light;
-    a {
-      color: $mid;
+    #task_list_container {    
+      @include column(10);
+      li {
+        @include border-radius(4px, 4px);
+        list-style-type: none;
+        background-color: $dark;
+        margin: 0.2em;
+        padding: 0.2em;
+        border: {
+          style: solid;
+          width: 0.3em;
+          color: $mid;
+        }
+        a {
+          color: $mid;
+        }
+      }
+    }
+    #task_list_actions {
+      @include column(10, true);
     }
     // true means it's the last column in the row
-    @include column(20, true); } }
+    @include column(20, true); 
+  } 
+}
