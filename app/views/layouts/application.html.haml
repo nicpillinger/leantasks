@@ -9,11 +9,13 @@
     = javascript_include_tag :defaults
     = csrf_meta_tag
     = yield :head
-  %body{:class => "two-col bp"}
-    =render :partial => "application/header"
-    %div#container
-      =render :partial => "application/sidebar"
-      %div#content
+  %body
+    .wrap#root
+      #header
+        =render :partial => "application/header"
+      #content
         = yield
+      #root_footer
+    #footer
       =render :partial => "application/footer"
   = yield :javascript

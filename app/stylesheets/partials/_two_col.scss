@@ -1,42 +1,13 @@
-// Page layout can be done using mixins applied to your semantic classes and IDs
-// For instance this layout defines a two column layout on pages with
-// a body class of "two-col".
-//
-// The markup would look like:
-//    <div id="container">
-//      <div id="header"></div>
-//      <div id="sidebar"></div>
-//      <div id="content"></div>
-//      <div id="footer"></div>
-//    </div>
-//
-// and the layout would look like:
-//    +------------------------+
-//    |        #header         |
-//    +--------+---------------+
-//    |        |               |
-//    |#sidebar|    #content   |
-//    |        |               |
-//    +------------------------+
-//    |        #footer         |
-//    +--------+---------------+
 @import "compass/css3/border-radius";
+@import "compass/utilities/lists/horizontal-list";
 
-body.two-col {
+body {
   background-color: white; 
-  #container {
+  .wrap {
     @include container; }
-  #header {
-    height: 1.5em;
-    text-align: center;
-    color: $bold;
-    @include column($blueprint-grid-columns); }    
   #footer {
-    color: $muted;
-    @include column($blueprint-grid-columns); }    
-  #sidebar {
-    color: $muted;
-    @include column(4); }
+    background-color: $muted;
+  }    
   #content {
     color: $light;
     #task_list_container {    
@@ -56,7 +27,7 @@ body.two-col {
           color: $mid;
         }
         a.prioritisation_link {
-          float: right;
+          @include float-right;
           padding: 0.1em;
         }
       }

@@ -1,3 +1,9 @@
-%div#header
+%div#nav
+  %ul#menu
+    %li.menu-item backlog
+    %li.menu-item to-do
+    %li.menu-item archive
+%div#status
   =image_tag("ajax-loader.gif", :id => 'spinner', :style => 'display: none')
+%div#notices
   %p#notice= notice    
