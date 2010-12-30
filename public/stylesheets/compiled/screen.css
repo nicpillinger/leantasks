@@ -543,7 +543,7 @@ form.bp textarea {
 
 /* line 24, ../../../app/stylesheets/partials/_two_col.scss */
 body.two-col {
-  background-color: #263236;
+  background-color: white;
 }
 /* line 26, ../../../app/stylesheets/partials/_two_col.scss */
 body.two-col #container {
@@ -554,6 +554,7 @@ body.two-col #container {
 }
 /* line 28, ../../../app/stylesheets/partials/_two_col.scss */
 body.two-col #header, body.two-col #footer {
+  height: 3em;
   text-align: center;
   color: #ff6c1d;
   display: inline;
@@ -565,7 +566,7 @@ body.two-col #header, body.two-col #footer {
 * html body.two-col #header, * html body.two-col #footer {
   overflow-x: hidden;
 }
-/* line 32, ../../../app/stylesheets/partials/_two_col.scss */
+/* line 33, ../../../app/stylesheets/partials/_two_col.scss */
 body.two-col #sidebar {
   color: #f09d68;
   display: inline;
@@ -577,7 +578,7 @@ body.two-col #sidebar {
 * html body.two-col #sidebar {
   overflow-x: hidden;
 }
-/* line 35, ../../../app/stylesheets/partials/_two_col.scss */
+/* line 36, ../../../app/stylesheets/partials/_two_col.scss */
 body.two-col #content {
   color: #c4a79e;
   display: inline;
@@ -585,7 +586,7 @@ body.two-col #content {
   margin-right: 0;
   width: 790px;
 }
-/* line 37, ../../../app/stylesheets/partials/_two_col.scss */
+/* line 38, ../../../app/stylesheets/partials/_two_col.scss */
 body.two-col #content a {
   color: #84868b;
 }

@@ -2,6 +2,10 @@ function toggleSpinner(){
   $("#spinner").toggle();
 }
 
+function displayNotice(noticeMsg){
+  $("#notice").html(noticeMsg).fadeIn('slow').delay(3000).fadeOut('slow');
+}
+
 function bindSortableItems(updateTaskPositionsUrl){
   $(".sortable").sortable({
     update: function(event, ui) { 
@@ -17,7 +21,7 @@ function bindSortableItems(updateTaskPositionsUrl){
           toggleSpinner();
         },
         success: function(){
-          $("#notice").html("reprioritised!");
+          displayNotice("reprioritised!");
         }
       });
     }

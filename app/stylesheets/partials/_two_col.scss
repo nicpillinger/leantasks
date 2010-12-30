@@ -22,13 +22,14 @@
 //    +--------+---------------+
 
 body.two-col {
-  background-color: $dark; 
+  background-color: white; 
   #container {
     @include container; }
   #header, #footer {
+    height: 3em;
     text-align: center;
     color: $bold;
-    @include column($blueprint-grid-columns); }
+    @include column($blueprint-grid-columns); }    
   #sidebar {
     color: $muted;
     @include column(4); }

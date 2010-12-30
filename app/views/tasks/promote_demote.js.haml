@@ -1,3 +1,3 @@
 $("#task_list_container").html("#{escape_javascript(render :partial => 'task_lists/task_list', :locals => {:task_list => @task_list})}");
-$("#notice").html("#{@notice}")
+displayNotice("#{@notice}");
 bindSortableItems("#{update_task_positions_task_list_path(@task_list)}");
