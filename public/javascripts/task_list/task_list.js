@@ -3,7 +3,7 @@ function toggleSpinner(){
 }
 
 function displayNotice(noticeMsg){
-  $("#notice").html(noticeMsg).fadeIn('slow').delay(3000).fadeOut('slow');
+  $("#notice").html(noticeMsg).fadeIn('slow').delay(2000).fadeOut('slow');
 }
 
 function bindSortableItems(updateTaskPositionsUrl){
