@@ -1,26 +1,42 @@
 @import "compass/utilities/lists/horizontal-list";
+@import "compass/css3/border-radius";
 
 #header {
   @include column($blueprint-grid-columns);
-  height: 1.5em;
+  height: 3em;
+	margin-bottom: 0.5em;
+	background: $muted;
+	font-size: 150%;
+	a {
+		color: $bold;
+		text-decoration: none;
+		padding: 0.5em;
+	}
+	a:hover	{
+    @include border-radius(10px, 10px);		
+		background: $bold;
+		color: white;
+	}
   #nav {
-    @include column(10);
-    color: $bold;
+    @include column(7);
     ul#menu {
-      @include horizontal-list;
-    }
+      @include horizontal-list;			
+			li {
+				padding: 0em;
+			}
+		}  
   }
   #notices {
-    @include column(4);
+    @include column(10);
     text-align: center;    
     #notice {
-      background-color: $bold;
-      color: $dark;    
+			background-color: $bold;
+	    color: $dark;    
     }
   } 
-  #status {
-    @include column(10, true);
-    @include float-right;
-    text-align: right;
-  }
+	#login {
+		@include column(7, true);
+    float: right;    
+		text-align: right;
+	}
 }

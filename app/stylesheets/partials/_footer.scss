@@ -3,7 +3,8 @@
 @include sticky-footer(20px, "#root", "#root-footer", "#footer");
 
 #footer {
-  background-color: $muted;
+  background-color: $mid;
+	color: $bold;
   p {
     padding-left: 0.5em;
   }

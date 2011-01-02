@@ -1,13 +1,16 @@
 @import "compass/css3/border-radius";
 @import "compass/utilities/lists/bullets";
 
-body {
-  background-color: white; 
+body {  
+  background-color: $bold; 
   .wrap {
     @include container; }
   #content {
     @include column($blueprint-grid-columns); 
     color: $light;
+		h1 {
+			color: $mid;
+		}
     #task_list_container {    
       @include column($blueprint-grid-columns / 3 * 2);
       @include no-bullets();
@@ -33,6 +36,22 @@ body {
     }
     #task_list_actions {
       @include column($blueprint-grid-columns / 3, true);
+			a {
+        @include border-radius(10px, 10px);
+				font-size: 200%;
+				padding: 0.5em;
+				text-decoration: none;
+				color: $dark;
+        background-color: $light;
+				border: {
+					style: solid;
+          width: 0.2em;
+          color: $mid;	
+				}
+			}
+			a:hover {
+				color: $bold;
+			}
     }
   } 
 }

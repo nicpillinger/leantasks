@@ -1,7 +1,12 @@
 %div#nav
   %ul#menu
-    %li.menu-item backlog
-    %li.menu-item to-do
-    %li.menu-item archive
-%div#notices
-  %p#notice= notice    
+    %li.menu-item 
+      =link_to "backlog"
+    %li.menu-item 
+      =link_to "to-do"
+    %li.menu-item 
+      =link_to "archive"
+#notices
+  #notice= notice    
+#login
+  =link_to "sign in ->"
