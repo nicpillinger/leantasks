@@ -43,8 +43,8 @@ Leantasks::Application.configure do
     :address => 'smtp.gmail.com',
     :port => 587,
     :domain => "gmail.com",
-    :user_name => 'leantasks@gmail.com',
-    :password => 'Banana99',
+    :user_name => 'nicpillinger@gmail.com',
+    :password => 'Banana42',
     :authentication => 'plain',
   }
 
