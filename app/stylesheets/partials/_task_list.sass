@@ -1,0 +1,21 @@
+@import "compass/css3/opacity"
+
+#task_list_container    
+  +column($blueprint-grid-columns / 3 * 2)
+  +no-bullets
+  +opacity(0.7)
+  li
+    +border-radius(4px, 4px)
+    :background-color $task-color
+    :margin 0.2em
+    :padding 0.5em
+    :font-size 200%
+    :border 
+      :style solid
+      :width 0.2em
+      :color $task-border-color
+    a.task_link
+      :color $mid
+    a.prioritisation_link
+      +float-right
+      :padding 0.1em

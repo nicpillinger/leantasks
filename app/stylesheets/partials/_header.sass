@@ -1,0 +1,40 @@
+@import "compass/utilities/lists/horizontal-list"
+@import "compass/css3/border-radius"
+
+@mixin current-nav
+  +border-radius(10px, 10px)    
+  :background $mid
+  :color $muted
+
+#header
+  +column($blueprint-grid-columns)
+  :font-size 150%
+  :padding
+    :top 0.2em
+    :bottom 0.2em
+  :line-height 2em
+  a
+    :color $dark
+    :text-decoration none
+    :padding 0.5em
+    &:hover 
+      +current-nav
+    &.current
+      +current-nav
+  #nav
+    +column(7)
+    ul#menu
+      +horizontal-list      
+      li
+        padding 0em
+  #notices
+    +column(10)
+    :text-align center    
+    #notice
+      +border-radius(6px, 6px) 
+      :background-color $muted
+      :color $dark   
+  #login
+    +column(7, true)
+    :float right    
+    :text-align right

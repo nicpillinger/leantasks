@@ -1,0 +1,17 @@
+@import "compass/css3/background-clip"
+
+=task-action-button
+  +background-clip("padding-box")
+  +border-radius(10px, 10px)
+  +linear-gradient(color-stops($light, $mid)) 
+  :font-size 200%
+  :padding 0.5em
+  :text-decoration none
+  :color $dark
+  :background-color $light
+  :border
+    :style solid
+    :width 0.2em
+    :color $mid	
+  &:hover
+    :color $bold
