@@ -754,12 +754,12 @@ body #content a.task_list_action {
   border-width: 0.2em;
   border-color: #044c29;
 }
-/* line 16, ../../../app/stylesheets/partials/task-action-button.sass */
+/* line 16, ../../../app/stylesheets/partials/task_lists/task-action-button.sass */
 body #content a.task_list_action:hover {
   color: #96ed89;
 }
 
-/* line 3, ../../../app/stylesheets/partials/_task_list.sass */
+/* line 3, ../../../app/stylesheets/partials/task_lists/_task_list.sass */
 #task_list_container {
   display: inline;
   float: left;
@@ -780,7 +780,7 @@ body #content a.task_list_action:hover {
   list-style-type: none;
   margin-left: 0px;
 }
-/* line 7, ../../../app/stylesheets/partials/_task_list.sass */
+/* line 7, ../../../app/stylesheets/partials/task_lists/_task_list.sass */
 #task_list_container li {
   -webkit-border-radius: 4px 4px;
   -moz-border-radius: 4px / 4px;
@@ -796,18 +796,18 @@ body #content a.task_list_action:hover {
   border-width: 0.2em;
   border-color: #333333;
 }
-/* line 17, ../../../app/stylesheets/partials/_task_list.sass */
+/* line 17, ../../../app/stylesheets/partials/task_lists/_task_list.sass */
 #task_list_container li a.task_link {
   color: #044c29;
 }
-/* line 19, ../../../app/stylesheets/partials/_task_list.sass */
+/* line 19, ../../../app/stylesheets/partials/task_lists/_task_list.sass */
 #task_list_container li a.prioritisation_link {
   display: inline;
   float: right;
   padding: 0.1em;
 }
 
-/* line 1, ../../../app/stylesheets/partials/_task_list_actions.sass */
+/* line 1, ../../../app/stylesheets/partials/task_lists/_task_list_actions.sass */
 #task_list_actions {
   display: inline;
   float: left;
@@ -818,7 +818,7 @@ body #content a.task_list_action:hover {
 * html #task_list_actions {
   overflow-x: hidden;
 }
-/* line 3, ../../../app/stylesheets/partials/_task_list_actions.sass */
+/* line 3, ../../../app/stylesheets/partials/task_lists/_task_list_actions.sass */
 #task_list_actions p {
   margin-top: 1.5em;
   font-size: 125%;

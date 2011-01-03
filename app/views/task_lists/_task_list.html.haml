@@ -2,6 +2,4 @@
   %ul.sortable#task_list
     - @task_list.tasks.each do |task|
       %li{:id => "task_#{task.id}"}
-        %span
-          = link_to "#{task.name}", task_list_task_path(@task_list, task), :class => 'task_link'
-        = prioritisation_links(task)
+        =render :partial => "task_lists/task", :locals => { :task => task }
