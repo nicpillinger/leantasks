@@ -1,0 +1,13 @@
+@import "compass/layout/sticky-footer"
+@import "compass/utilities/links/hover-link"
+@import "compass/utilities/links/link-colors"
+
++sticky-footer(40px, "#root", "#root-footer", "#footer")
+
+#footer
+  :color $bold
+  a    
+    +hover-link
+    +link-colors($light, $task-color, $dark)
+  p
+    :padding-left 0.5em

@@ -9,9 +9,6 @@
 @import "blueprint";
 
 // Combine the partials into a single screen stylesheet.
-@import "partials/colours";
-@import "partials/header";
-@import "partials/footer";
 @import "partials/page";
 @import "partials/form";
-@import "partials/main";
+@import "partials/application/main";

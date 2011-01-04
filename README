@@ -7,11 +7,15 @@ Built with:
   Rails 3
   Jquery
   Haml
-  Sqlite
+  Compass
+  Sass
   
 developed using:
   
   Cucumber
   RSpec
   Fabrication
-  Capybara/Webrat
+  Capybara
+  Webrat
+  
+hosted via heroku at http://leantasks.heroku.com

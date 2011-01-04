@@ -14,6 +14,7 @@ gem "clearance", "~> 0.9"
 # and rake tasks are available in development mode:
 group :development, :test do
   gem "capybara", ">= 0.4.0"
+  gem 'factory_girl_rails'
   gem "cucumber-rails", ">= 0.3.2"
   gem "database_cleaner", ">= 0.5.2"
   gem "launchy", ">= 0.3.7"
