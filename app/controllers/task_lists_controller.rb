@@ -41,7 +41,8 @@ class TaskListsController < ApplicationController
   # POST /task_lists.xml
   def create
     @task_list = TaskList.new(params[:task_list])
-
+    @task_list.user = current_user
+    
     respond_to do |format|
       if @task_list.save
         format.html { redirect_to(@task_list, :notice => 'Task list was successfully created.') }
