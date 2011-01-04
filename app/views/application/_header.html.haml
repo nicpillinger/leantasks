@@ -9,5 +9,4 @@
 #notices
   #notice= notice    
 #login
-  =link_to "sign in"
-  =link_to "sign out", sign_out_path, :method => "delete"
+  =signed_in? ? link_to("sign out #{current_user.email}", sign_out_path, :method => "delete") : link_to("sign in", sign_in_path)
