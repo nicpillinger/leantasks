@@ -3,7 +3,7 @@ class TaskListsController < ApplicationController
   # GET /task_lists
   # GET /task_lists.xml
   def index
-    @task_lists = TaskList.where(:user_id => current_user)
+    @task_lists = TaskList.where(:user_id => current_user.id)    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @task_lists }

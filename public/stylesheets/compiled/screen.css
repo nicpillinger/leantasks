@@ -767,11 +767,11 @@ html, body {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('/images/edit.png?1211710258');
+  background-image: url('/images/edit.png?1211710696');
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   display: inline;
   float: right;
 }
@@ -780,11 +780,11 @@ html, body {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('/images/destroy.png?1211710406');
+  background-image: url('/images/destroy.png?1211710846');
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   display: inline;
   float: right;
 }
@@ -858,20 +858,20 @@ html, body {
   font-size: 125%;
 }
 
-/* line 16, ../../../app/stylesheets/partials/application/_main.sass */
+/* line 16, ../../../app/stylesheets/partials/_main.sass */
 body {
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #96ed89), color-stop(100%, #044c29));
   background-image: -moz-linear-gradient(top, #96ed89 0%, #044c29 100%);
   background-image: linear-gradient(top, #96ed89 0%, #044c29 100%);
 }
-/* line 18, ../../../app/stylesheets/partials/application/_main.sass */
+/* line 18, ../../../app/stylesheets/partials/_main.sass */
 body .wrap {
   width: 950px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 20, ../../../app/stylesheets/partials/application/_main.sass */
+/* line 20, ../../../app/stylesheets/partials/_main.sass */
 body #content {
   display: inline;
   float: left;
@@ -889,11 +889,11 @@ body #content {
 * html body #content {
   overflow-x: hidden;
 }
-/* line 28, ../../../app/stylesheets/partials/application/_main.sass */
+/* line 28, ../../../app/stylesheets/partials/_main.sass */
 body #content h1 {
   color: #044c29;
 }
-/* line 30, ../../../app/stylesheets/partials/application/_main.sass */
+/* line 30, ../../../app/stylesheets/partials/_main.sass */
 body #content a.task_list_action {
   -moz-background-clip: padding;
   -webkit-background-clip: padding;
@@ -919,7 +919,7 @@ body #content a.task_list_action {
   border-width: 0.2em;
   border-color: #044c29;
 }
-/* line 16, ../../../app/stylesheets/partials/task_lists/task-action-button.sass */
+/* line 16, ../../../app/stylesheets/partials/task_lists/task_action_button.sass */
 body #content a.task_list_action:hover {
   color: #96ed89;
 }

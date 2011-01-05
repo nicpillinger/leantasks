@@ -2,7 +2,7 @@
 
 %div#task_lists
   %ul.task_lists
-    - if (@tasks_lists.nil?)
+    - if (@task_lists.nil?)
       %li.task_list
         =link_to("No tasklists yet, why dont you create one?", new_task_list_path)
     - else
