@@ -17,7 +17,7 @@ function hideNotice(){
 }
 
 function bindSortableItems(updateTaskPositionsUrl){
-  $(".sortable").sortable({
+  $("#task_list").sortable({
     update: function(event, ui) { 
       $.ajax({
         url: updateTaskPositionsUrl,

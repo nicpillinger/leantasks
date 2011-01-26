@@ -1,5 +1,5 @@
 %div#task_list_container  
-  %ul.sortable#task_list
+  %ul#task_list
     - @task_list.tasks.each do |task|
-      %li{:id => "task_#{task.id}"}
+      %li.task{:id => "task_#{task.id}"}
         =render :partial => "task_lists/task", :locals => { :task => task }

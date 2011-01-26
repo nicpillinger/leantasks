@@ -699,7 +699,7 @@ html, body {
   padding-left: 0.5em;
 }
 
-/* line 1, ../../../app/stylesheets/partials/application/_default_form.sass */
+/* line 1, ../../../app/stylesheets/partials/application/_default-form.sass */
 .default-form {
   display: inline;
   float: left;
@@ -841,7 +841,7 @@ html, body {
   padding: 0em;
 }
 /* line 38, ../../../app/stylesheets/partials/task_lists/_task_list.sass */
-#task_list_container li {
+#task_list_container li.task {
   -webkit-border-radius: 4px 4px;
   -moz-border-radius: 4px / 4px;
   -o-border-radius: 4px / 4px;
@@ -857,11 +857,59 @@ html, body {
   border-color: #333333;
 }
 /* line 48, ../../../app/stylesheets/partials/task_lists/_task_list.sass */
-#task_list_container li a.task_link {
-  color: #044c29;
+#task_list_container li.task:hover {
+  background-color: #45bf55;
 }
 /* line 50, ../../../app/stylesheets/partials/task_lists/_task_list.sass */
-#task_list_container li a.prioritisation_link {
+#task_list_container li.task span.complex {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-image: url("/images/icon_star.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* line 7, ../../../../../.rvm/gems/ruby-1.9.2-p136@leantasks/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+#task_list_container li.task span.complex {
+  *display: inline;
+}
+/* line 62, ../../../app/stylesheets/partials/task_lists/_task_list.sass */
+#task_list_container li.task span.actions {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  display: inline;
+  float: right;
+  vertical-align: center;
+}
+/* line 7, ../../../../../.rvm/gems/ruby-1.9.2-p136@leantasks/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+#task_list_container li.task span.actions {
+  *display: inline;
+}
+/* line 66, ../../../app/stylesheets/partials/task_lists/_task_list.sass */
+#task_list_container li.task span.actions ul.task_status {
+  font-size: 50%;
+  text-align: right;
+}
+/* line 69, ../../../app/stylesheets/partials/task_lists/_task_list.sass */
+#task_list_container li.task span.actions ul.task_status li {
+  padding: 0.1em;
+}
+/* line 71, ../../../app/stylesheets/partials/task_lists/_task_list.sass */
+#task_list_container li.task a.task_link {
+  color: #044c29;
+}
+/* line 73, ../../../app/stylesheets/partials/task_lists/_task_list.sass */
+#task_list_container li.task a.prioritisation_link {
   display: inline;
   float: right;
   padding: 0.1em;

@@ -1,5 +1,3 @@
 %h1 New task
-
 = render 'form'
-
-= link_to 'Back', task_list_path(@task.task_list)
+= link_to 'Back', task_list_path(@task.task_list), :class => "task_list_action"

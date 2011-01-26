@@ -28,14 +28,14 @@ $task_list_width: $blueprint-grid-columns / 3 * 2
         &.destroy_task_list
           +replace-text-with-dimensions("destroy.png")
           +float-right
-          
+
 #task_list_container    
   +column($task_list_width)
   +no-bullets
   +opacity(0.7)
   ul#task_list
     :padding 0em
-  li
+  li.task
     +border-radius(4px, 4px)
     :background-color $task-color
     :margin 0.2em
@@ -45,6 +45,29 @@ $task_list_width: $blueprint-grid-columns / 3 * 2
       :style solid
       :width 0.2em
       :color $task-border-color
+    &:hover
+      :background-color $muted
+    span.complex
+      +inline-block
+      :text-align center
+      :padding 
+        :left 15px
+        :right 15px
+        :top 5px
+        :bottom 5px
+      :background
+        :image url("/images/icon_star.gif")
+        :repeat no-repeat
+        :position center
+    span.actions
+      +inline-block
+      +float-right
+      :vertical-align center
+      ul.task_status
+        :font-size 50%
+        :text-align right
+        li
+          :padding 0.1em
     a.task_link
       :color $mid
     a.prioritisation_link
